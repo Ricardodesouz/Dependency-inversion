@@ -8,13 +8,13 @@ import java.time.LocalDate;
 
 public class aplic {
     public static void main(String[] args){
-       int number = 12;
-       double value = 600;
+       int number = 22;
+       double value = 8000;
        LocalDate date = LocalDate.parse("2024-03-26");
        Contratc contract = new Contratc(number, value, date);
-        int month = 3;
+        int months = 45;
 
-        ServicesPayment sp = new PayPalPayment(month);
+        ServicesPayment sp = new PayPalPayment(months);
         sp.calcuclatePayment(contract);
 
         System.out.print(contract.toString());

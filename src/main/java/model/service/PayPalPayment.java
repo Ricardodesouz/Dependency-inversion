@@ -7,21 +7,21 @@ import model.entities.Payment;
 
 public class PayPalPayment implements ServicesPayment {
 
-    private Integer month;
+    private Integer months;
 
-    public PayPalPayment( Integer month) {
+    public PayPalPayment( Integer months) {
 
-        this.month = month;
+        this.months = months;
     }
 
     @Override
     public void calcuclatePayment(Contratc contratc) {
 
-        for (int i = 1; i <= month; i++) {
-            double value = contratc.getPrice() / month;
+        for (int i = 1; i <= months; i++) {
+            double value = contratc.getPrice() / months;
             value += (value * 0.01) * i;
-            Double valueWithAmount = value + (value * 0.02);
-            contratc.setPayments(new Payment(valueWithAmount, contratc.getDate().plusMonths(i)));
+            Double valueWithTaxes = value + (value * 0.02);
+            contratc.setPayments(new Payment(valueWithTaxes, contratc.getDate().plusMonths(i)));
 
 
         }
